@@ -1,13 +1,12 @@
 //jshint esversion:6
 
 const express = require("express");
-const date = require(__dirname + "/date.js"); //because it's local you have to put dirname.
+const date = require(__dirname + "/date.js"); 
 let day = date.getDate(); //date is required above and send the file of the date and triggers the getDate function.
 const mongoose = require("mongoose");
 const app = express();
 require('dotenv').config();
-// const items = ['coding', 'clean litterbox', 'do the dishes']; //const still can push items in array with const.
-// const workItems = [];
+
 
 app.set('view engine', 'ejs');
 
@@ -21,8 +20,6 @@ mongoose.connect(`${process.env.DB_URI}`, {
   useUnifiedTopology: true,
   useFindAndModify: false
 });
-//Replace <password> with the password for the Admin-Dannique user. 
-//Replace myFirstDatabase with the name of the database that connections will use by default. Ensure any option params are URL encoded.
 
 const itemsSchema = {
   name: String
@@ -48,20 +45,12 @@ const item4 = new Item({
 
 const defaultItems = [item1, item2, item3, item4];
 
-
-
 const listSchema = {
   name: String,
   items: [itemsSchema]
 }
 const List = mongoose.model("List", listSchema);
 
-//start mongod,
-// open other tab and open mongo,
-//show dbs,
-//use "todolistDB",
-//show collections,
-//db.items.find()
 
 app.get("/", function (req, res) {
 
@@ -183,7 +172,3 @@ if(port == null || port == ""){
 app.listen(port, function(){
   console.log("server started");
 });
-
-// app.listen(3000, function () {
-//   console.log("Server started on port 3000.");
-// })
