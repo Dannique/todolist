@@ -1,0 +1,164 @@
+html {
+  background-color: black;
+  /* background-color: #B69B3A; */
+  background-image: -webkit-linear-gradient(63deg, black 50%, #DED6CF 50%);
+  background-repeat: no-repeat;
+  min-height: 800px;
+}
+
+/* @media all and (max-width: 550px) {
+  html{
+    background-image: none !important;
+    background-color: black !important;
+  }
+} */
+
+h1 {
+  color: #F1F1F1;
+  padding: 5px;
+}
+.paramName{
+  font-size: 3rem;
+  margin-top: 5px;
+}
+
+.box {
+  max-width: 500px;
+  margin: 50px auto;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+}
+
+#heading {
+  background-color: #B69B3A;
+  text-align: center;
+  font-family: "Rancho";
+  font-size: 21px;
+}
+
+.item {
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #F1F1F1;
+}
+
+.item:last-child {
+  border-bottom: 0;
+}
+
+input:checked+p {
+  text-decoration: line-through;
+  text-decoration-color: #B69B3A;
+}
+
+input[type="checkbox"] {
+  margin: 20px;
+  background-color: #B69B3A !important;
+}
+
+p {
+  margin: 0;
+  padding: 20px;
+  font-size: 23px;
+  font-weight: 200;
+  color: #00204a;
+  font-family: "Barlow Semi Condensed";
+}
+
+form.item {
+  text-align: center;
+  margin-left: 20px;
+}
+
+.plusButton {
+  min-height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: #B69B3A;
+  color: #fff;
+  font-size: 30px;
+  padding-bottom: 6px;
+  border-width: 0;
+}
+
+.inputName {
+  text-align: center;
+  width: 150px;
+  height: 24px;
+  border: none;
+  border-radius:5%;
+  background-color: #DED6CF;
+  font-family: Barlow Semi Condensed;
+  font-size: 1.1rem;
+
+}
+
+.inputName:focus{
+  text-align: center;
+  width: 150px;
+  height: 20px;
+}
+
+.boxList{
+  max-width: 500px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+.label{
+  color:#B69B3A;
+}
+.goToButton{
+  min-height: 23px;
+  width: 50px;
+  border-radius: 10%;
+  background-color: #B69B3A;
+  color: #fff;
+  font-size: medium;
+  padding-bottom: 6px;
+  border-width: 0;
+  position: relative;
+  bottom: 3px;
+  margin-left: 4px;
+  padding-top: 5px;
+}
+
+
+/*************LIST***********/
+.listItem {
+  text-align: center;
+  height: 60px;
+  top: 10px;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  font-weight: 200;
+  width: 400px;
+}
+
+.listItem:focus {
+  outline: none;
+  box-shadow: inset 0 -3px 0 0 #B69B3A;
+}
+
+::placeholder {
+  color: grey;
+  opacity: 1;
+}
+
+footer {
+  color: white;
+  color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+
+}
+
+.copyright {
+  font-size: 15px;
+  color: #B69B3A;
+  opacity: 50%;
+}
+
+/*#54928C  #C6AE5B   #F1F1F1  #E4E9FD*/

@@ -1,0 +1,36 @@
+<%- include('header'); -%>
+
+<div class="box" id="heading">
+  <h1 class="paramName"><%=paramName%></h1>
+  <h1>The <%=listTitle%> To-Do List</h1>
+</div>
+
+
+<div class="box">
+  <% newListItems.forEach((item)=>{ %>
+  <form action="/delete" method="post">
+    <div class="item">
+      <input type="checkbox" name="checkbox" value="<%= item._id %>" onchange="this.form.submit()">
+      <p><%= item.name %></p>
+    </div>
+    <input type="hidden" name="listName" value="<%= paramName %>"></input>
+  </form>
+  <% }) %>
+
+  <form class="item" action="/" method="post">
+
+    <input type="text" name="listItem" placeholder="New Item" autocomplete="off" class="listItem">
+
+    <button type="submit" name="list" class="plusButton" value=<%= paramName %>>+</button>
+  </form>
+</div>
+
+<div class="boxList">
+  <form action="/delete" method="post">
+    <label for="listName"><p class="label">Type here the name of your custom list:</p></label>
+    <input type="text" name="listName" value="<%= paramName %>" class="inputName"></input>
+    <button class="goToButton"> Go </button>
+  </form>
+  </div>
+
+<%- include('footer'); -%>
