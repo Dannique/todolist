@@ -1,7 +1,7 @@
 //jshint esversion:6
 
 const express = require("express");
-const date = require(__dirname + "/date.js"); 
+const date = require(__dirname + "/date.js");
 let day = date.getDate(); //date is required above and send the file of the date and triggers the getDate function.
 const mongoose = require("mongoose");
 const app = express();
@@ -51,9 +51,9 @@ const listSchema = {
 }
 const List = mongoose.model("List", listSchema);
 
+app.route("/")
 
-app.get("/", function (req, res) {
-
+.get(function (req, res) {
   Item.find({}, function (err, foundItems) {
 
     if (foundItems.length === 0) {
@@ -73,6 +73,27 @@ app.get("/", function (req, res) {
       });
     }
   });
+})
+
+.post(function (req, res) {
+  const itemName = req.body.listItem;
+  const listName = req.body.list;
+
+  const item = new Item({
+    name: itemName
+  });
+  if (listName == "Home") {
+    item.save();
+    res.redirect("/");
+  } else {
+    List.findOne({
+      name: listName
+    }, function (err, foundList) {
+      foundList.items.push(item);
+      foundList.save();
+      res.redirect("/" + listName);
+    });
+  };
 })
 
 app.get("/:customListName", function (req, res) {
@@ -105,28 +126,6 @@ app.get("/:customListName", function (req, res) {
     }
 
   }); // difference between find and findOne is that find gives an array back, and findOne gives an object back.
-})
-
-app.post("/", function (req, res) {
-  const itemName = req.body.listItem;
-  const listName = req.body.list;
-
-  const item = new Item({
-    name: itemName
-  });
-  if (listName == "Home") {
-    item.save();
-    res.redirect("/");
-  } else {
-    List.findOne({
-      name: listName
-    }, function (err, foundList) {
-      foundList.items.push(item);
-      foundList.save();
-      res.redirect("/" + listName);
-    });
-  };
-
 })
 
 app.post("/delete", function (req, res) {
@@ -166,9 +165,9 @@ app.get("/about", function (req, res) {
 
 
 let port = process.env.PORT;
-if(port == null || port == ""){
+if (port == null || port == "") {
   port = 3000;
 }
-app.listen(port, function(){
+app.listen(port, function () {
   console.log("server started");
 });
