@@ -1,6 +1,5 @@
 html {
   background-color: black;
-  /* background-color: #B69B3A; */
   background-image: -webkit-linear-gradient(63deg, black 50%, #DED6CF 50%);
   background-repeat: no-repeat;
   min-height: 800px;
@@ -138,7 +137,9 @@ form.item {
   color: grey;
   opacity: 1;
 }
+
 /*********** FOOTER PAGE ***********/
+
 footer {
   color: white;
   color: rgba(0, 0, 0, 0.5);

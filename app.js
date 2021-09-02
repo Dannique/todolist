@@ -2,17 +2,17 @@
 
 const express = require("express");
 const date = require(__dirname + "/date.js");
-let day = date.getDate(); //date is required above and send the file of the date and triggers the getDate function.
+let day = date.getDate(); 
 const mongoose = require("mongoose");
 const app = express();
 require('dotenv').config();
-
 
 app.set('view engine', 'ejs');
 
 app.use(express.urlencoded({
   extended: true
 }));
+
 app.use(express.static("public"));
 
 mongoose.connect(`${process.env.DB_URI}`, {
@@ -25,7 +25,7 @@ const itemsSchema = {
   name: String
 };
 
-const Item = mongoose.model("Item", itemsSchema); //"Item = singular name, shows up in collection as:"items" also called modelname.
+const Item = mongoose.model("Item", itemsSchema); 
 
 const item1 = new Item({
   name: "Welcome to your personal to-do list!"
@@ -119,13 +119,13 @@ app.get("/:customListName", function (req, res) {
           paramName: foundList.name,
           listTitle: day + " ",
           newListItems: foundList.items,
-        }) //show existing list
+        }) 
       }
     } else {
       console.log(err);
     }
 
-  }); // difference between find and findOne is that find gives an array back, and findOne gives an object back.
+  }); 
 })
 
 app.post("/delete", function (req, res) {
